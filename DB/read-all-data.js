@@ -1,18 +1,16 @@
-require('dotenv').config({path:'.env.development.local'});
+require("dotenv").config({ path: ".env.development.local" });
 
-const {sql} = require('@vercel/postgres')
+const { sql } = require("@vercel/postgres");
 
 async function execute() {
-
     try {
-
-        const {rows} = await sql`
-        SELECT * FROM note `
-        console.log(rows)
+        const { rows } = await sql`
+        SELECT * FROM note
+        `;
+        console.log("All data:", rows);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-
 }
 
-execute()
+execute();

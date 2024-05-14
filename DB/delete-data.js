@@ -1,18 +1,17 @@
-require('dotenv').config({path:'.env.development.local'});
+require("dotenv").config({ path: ".env.development.local" });
 
-const {sql} = require('@vercel/postgres')
+const { sql } = require("@vercel/postgres");
 
 async function execute() {
-
     try {
-
-        const {rows} = await sql`
-        DELETE FROM note WHERE id = 2; `
-        console.log(rows)
+        const { rows } = await sql`
+        DELETE FROM note
+        RETURNING *
+        `;
+        console.log("Data deleted:", rows);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-
 }
 
-execute()
+execute();
