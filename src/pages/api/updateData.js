@@ -8,8 +8,7 @@ async function updateData(req, res) {
                 .json({ message: "Method tidak diperbolehkan" });
         }
 
-        const { title, contain } = req.body;
-        const { id } = req.query;
+        const { id, title, contain } = req.body;
 
         if (!title || !contain || !id) {
             return res

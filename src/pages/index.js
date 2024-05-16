@@ -89,12 +89,12 @@ export default function Home() {
     }, []);
 
     const handleEdit = (id) => {
-        router.push(`/edit-data/${id}`);
+        router.push(`/updateData/${id}`);
     };
 
     const handleDelete = (id) => {
         if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-            fetch(`/api/deleteData?id=${id}`, {
+            fetch(`/api/delData?id=${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -127,7 +127,7 @@ export default function Home() {
                                     }>
                                     Detail
                                 </DetailButton>
-                                <EditButton onClick={() => handleEdit(data.id)}>
+                                <EditButton onClick={() => {router.push(`/edit/${data.id}`)}}>
                                     Edit
                                 </EditButton>
                                 <DeleteButton
