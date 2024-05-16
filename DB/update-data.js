@@ -14,6 +14,8 @@ async function execute() {
     } catch (error) {
         console.log(error);
     }
+    // UPDATE note
+    // SET title = ${title}, contain = ${Contain} WHERE id = 1
 }
 
 execute();
