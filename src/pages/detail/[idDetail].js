@@ -65,7 +65,7 @@ export default function Handler() {
                         <strong>Contain:</strong> {showData.contain}
                     </DetailItem>
                     <DetailItem>
-                        <strong>Upload At:</strong> {showData.upload_at}
+                        <strong>updated At:</strong> {showData.updated_at}
                     </DetailItem>
                     <DetailItem>
                         <strong>Created At:</strong> {showData.created_at}

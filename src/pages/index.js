@@ -110,7 +110,7 @@ export default function Home() {
 
     return (
         <Container>
-            <Header>Halaman Depan</Header>
+            <Header>My Notes By Naufal</Header>
             <AddButton onClick={() => router.push(`/add-data`)}>
                 Add Data
             </AddButton>
@@ -119,21 +119,28 @@ export default function Home() {
                     showAllData.map((data, index) => {
                         return (
                             <NoteCard key={index}>
-                                <NoteTitle>{data.title}</NoteTitle>
-                                <p>{data.id}</p>
-                                <DetailButton
-                                    onClick={() =>
-                                        router.push(`/detail/${data.id}`)
-                                    }>
-                                    Detail
-                                </DetailButton>
-                                <EditButton onClick={() => {router.push(`/edit/${data.id}`)}}>
-                                    Edit
-                                </EditButton>
-                                <DeleteButton
-                                    onClick={() => handleDelete(data.id)}>
-                                    Delete
-                                </DeleteButton>
+                                <span>
+                                    <span style={{ fontSize: "20px" }}>{data.title}</span>{" "}
+                                    <span style={{ fontSize: "12px" }}>{data.created_at}</span>
+                                </span>
+                                <div>
+                                    <DetailButton
+                                        onClick={() =>
+                                            router.push(`/detail/${data.id}`)
+                                        }>
+                                        Detail
+                                    </DetailButton>
+                                    <EditButton
+                                        onClick={() => {
+                                            router.push(`/edit/${data.id}`);
+                                        }}>
+                                        Edit
+                                    </EditButton>
+                                    <DeleteButton
+                                        onClick={() => handleDelete(data.id)}>
+                                        Delete
+                                    </DeleteButton>
+                                </div>
                             </NoteCard>
                         );
                     })}
